@@ -1,0 +1,7 @@
+{
+  "itemDisplayName": "Minio server on Ubuntu VM",
+  "description": "This template uses the Azure Linux CustomScript extension to deploy a Minio server. The deployment template creates an Ubuntu VM, installs Minio.",
+  "summary": "Deploy an Ubuntu VM with Minio server",
+  "githubUsername": "vadmeste",
+  "dateUpdated": "2017-08-20"
+}
