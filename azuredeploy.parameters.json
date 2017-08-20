@@ -13,6 +13,12 @@
     },
     "dnsNameForPublicIP": {
       "value": "agghiopera"
+    },
+    "azureAccount": {
+        "value":"xxxxx"
+    },
+    "azurePassword": {
+        "value":"xxxxxxxxxxxxxxx"
     }
   }
 }

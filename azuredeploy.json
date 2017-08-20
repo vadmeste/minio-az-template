@@ -20,6 +20,18 @@
         "description": "Password for the Virtual Machine."
       }
     },
+    "azureAccount": {
+      "type": "string",
+      "metadata": {
+        "description": "Account key for the Azure storage."
+      }
+    },
+    "azurePassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Account secret key for the Azure storage."
+      }
+    },
     "dnsNameForPublicIP": {
       "type": "string",
       "metadata": {
@@ -186,7 +198,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/vadmeste/minio-az-template/master/install_minio.sh"
           ],
-          "commandToExecute": "sh install_minio.sh"
+          "commandToExecute": "[concat('sh install_minio.sh ', parameters('azureAccount'), ' ', parameters('azurePassword'))]"
         }
       }
     }
