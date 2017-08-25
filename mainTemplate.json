@@ -4,6 +4,7 @@
   "parameters": {
     "newStorageAccountName": {
       "type": "string",
+      "defaultValue": "[uniqueString(resourceGroup().id)]",
       "metadata": {
         "description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
       }
@@ -34,6 +35,7 @@
     },
     "dnsNameForPublicIP": {
       "type": "string",
+      "defaultValue": "[uniqueString(resourceGroup().id)]",
       "metadata": {
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
@@ -48,6 +50,24 @@
       ],
       "metadata": {
         "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.10."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "ResourceGroup",
+      "metadata": {
+        "description": "Location where resources will be provisioned. A value of 'ResourceGroup' will deploy the resources to the same location as the resource group, any other value must be a valid Azure location e.g. 'australiasoutheast'"
+      }
+    },
+    "authenticationType": {
+      "type": "string",
+      "defaultValue": "password",
+      "allowedValues": [
+        "password",
+        "sshPublicKey"
+      ],
+      "metadata": {
+        "description": "Choose a password or ssh public key for the Admin username used to access virtual machines"
       }
     }
   },

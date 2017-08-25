@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+  "handler": "Microsoft.Compute.MultiVm",
+  "version": "0.1.2-preview",
+  "parameters": {
+    "basics": [
+      {
+        "name": "adminUsername",
+        "type": "Microsoft.Compute.UserNameTextBox",
+        "label": "User name",
+        "defaultValue": "",
+        "toolTip": "Specify a user for accessing the virtual machines within your cluster. Must be a valid Ubuntu username",
+        "constraints": {
+          "required": true,
+          "regex": "^(?!(?:adm|admin|audio|backup|bin|cdrom|crontab|daemon|dialout|dip|disk|fax|floppy|fuse|games|gnats|irc|kmem|landscape|libuuid|list|lp|mail|man|messagebus|mlocate|netdev|news|nobody|nogroup|operator|plugdev|proxy|root|sasl|shadow|src|ssh|sshd|staff|sudo|sync|sys|syslog|tape|tty|users|utmp|uucp|video|voice|whoopsie|www\\-data)$)\\w+$",
+          "validationMessage": "Username must not be a reserved Ubuntu username"
+        },
+        "osPlatform": "Linux"
+      },
+      {
+        "name": "password",
+        "type": "Microsoft.Compute.CredentialsCombo",
+        "label": {
+          "authenticationType": "Authentication type",
+          "password": "Password",
+          "confirmPassword": "Confirm password",
+          "sshPublicKey": "SSH public key"
+        },
+        "toolTip": {
+          "authenticationType": "Choose Authentication type Password or PublicKey(SSH).",
+          "password": "Enter the password for the specified user name.",
+          "sshPublicKey": "Copy Public key into field."
+        },
+        "constraints": {
+          "required": true
+        },
+        "options": {
+          "hideConfirmation": false
+        },
+        "osPlatform": "Linux"
+      },
+
+      {
+        "name": "azureAccount",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Azure Access Key",
+        "defaultValue": "",
+        "toolTip": "Specify an access key for accessing the Azure backend",
+        "constraints": {
+          "required": true
+        },
+        "visible":"true"
+      },
+      {
+        "name": "azurePassword",
+        "type": "Microsoft.Common.PasswordBox",
+        "label": {
+          "password": "Azure Secret Key"
+        },
+        "toolTip": "Enter the secret key for the specified Azure account.",
+        "constraints": {
+          "required": true
+        },
+        "options": {
+          "hideConfirmation": true
+        }
+      }
+    ],
+    "steps": [
+    ],
+    "outputs": {
+      "azureAccount": "[basics('azureAccount')]",
+      "azurePassword": "[basics('azurePassword')]",
+      "adminUsername": "[basics('adminUsername')]",
+      "authenticationType": "[basics('password').authenticationType]",
+      "adminPassword": "[basics('password').password]",
+      "sshPublicKey": "[basics('password').sshPublicKey]",
+      "location": "[location()]"
+    }
+  }
+}
