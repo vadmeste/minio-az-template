@@ -39,7 +39,6 @@
         },
         "osPlatform": "Linux"
       },
-
       {
         "name": "azureAccount",
         "type": "Microsoft.Common.TextBox",
@@ -64,6 +63,18 @@
         "options": {
           "hideConfirmation": true
         }
+      },
+      {
+          "name": "maxCapacity",
+          "type": "Microsoft.Common.TextBox",
+          "label": "Maximum VMs",
+          "defaultValue": "10",
+          "toolTip": "Sets the maximum number of VMs",
+          "constraints": {
+              "required": true,
+              "regex": "^\\d+$",
+              "validationMessage": "Only numbers are allowed"
+          }
       }
     ],
     "steps": [
@@ -72,10 +83,11 @@
       "azureAccount": "[basics('azureAccount')]",
       "azurePassword": "[basics('azurePassword')]",
       "adminUsername": "[basics('adminUsername')]",
-      "authenticationType": "[basics('password').authenticationType]",
       "adminPassword": "[basics('password').password]",
       "sshPublicKey": "[basics('password').sshPublicKey]",
-      "location": "[location()]"
+      "capacity": 1,
+      "vmSku": "Standard_A0",
+      "vmssName": "minioVMs"
     }
   }
 }
