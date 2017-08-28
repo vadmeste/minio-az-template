@@ -30,6 +30,13 @@
       },
       "maxValue": 100
     },
+    "maxCapacity": {
+      "type": "int",
+      "metadata": {
+        "description": "Maximum number of VM instances (100 or less)."
+      },
+      "maxValue": 100
+    },
     "adminUsername": {
       "type": "string",
       "metadata": {
@@ -294,7 +301,7 @@
             "name": "Profile1",
             "capacity": {
               "minimum": "1",
-              "maximum": "10",
+              "maximum": "[parameters('maxCapacity')]",
               "default": "1"
             },
             "rules": [

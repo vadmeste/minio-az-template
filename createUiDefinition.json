@@ -85,6 +85,7 @@
       "adminUsername": "[basics('adminUsername')]",
       "adminPassword": "[basics('password').password]",
       "sshPublicKey": "[basics('password').sshPublicKey]",
+      "maxCapacity": "[int(basics('maxCapacity'))]",
       "capacity": 1,
       "vmSku": "Standard_A0",
       "vmssName": "minioVMs"
