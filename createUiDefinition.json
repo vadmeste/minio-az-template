@@ -112,8 +112,8 @@
     "outputs": {
       "azureAccount": "[basics('azureAccount')]",
       "azurePassword": "[basics('azurePassword')]",
-      "publicCert": "[base64(basics('publicCert'))]",
-      "privateCert": "[base64(basics('privateCert'))]",
+      "publicCert": "[encodeBase64(basics('publicCert'))]",
+      "privateCert": "[encodeBase64(basics('privateCert'))]",
       "adminUsername": "[basics('adminUsername')]",
       "adminPassword": "[basics('password').password]",
       "sshPublicKey": "[basics('password').sshPublicKey]",

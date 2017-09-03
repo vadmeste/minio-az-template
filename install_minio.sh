@@ -10,8 +10,8 @@ echo "$4" >> $LOG_FILE
 HOME=/root/
 
 mkdir -p $HOME/.minio/certs/
-curl "$3" | base64 -d > $HOME/.minio/certs/public.crt
-curl "$4" | base64 -d > $HOME/.minio/certs/private.key
+echo "$3" | base64 -d > $HOME/.minio/certs/public.crt
+echo "$4" | base64 -d > $HOME/.minio/certs/private.key
 
 curl 'https://dl.minio.io/server/minio/release/linux-amd64/minio' > /usr/bin/minio
 chmod +x /usr/bin/minio
