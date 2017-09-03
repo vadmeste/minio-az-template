@@ -75,6 +75,36 @@
               "regex": "^\\d+$",
               "validationMessage": "Only numbers are allowed"
           }
+      },
+      {
+          "name": "publicCert",
+          "type": "Microsoft.Common.FileUpload",
+          "label": "Public certificate",
+          "toolTip": "",
+          "constraints": {
+              "required": false,
+              "accept": ".crt"
+          },
+          "options": {
+              "multiple": false,
+              "uploadMode": "url"
+          },
+          "visible": true
+      },
+      {
+          "name": "privateCert",
+          "type": "Microsoft.Common.FileUpload",
+          "label": "Private certificate",
+          "toolTip": "",
+          "constraints": {
+              "required": false,
+              "accept": ".key"
+          },
+          "options": {
+              "multiple": false,
+              "uploadMode": "url"
+          },
+          "visible": true
       }
     ],
     "steps": [
@@ -82,6 +112,8 @@
     "outputs": {
       "azureAccount": "[basics('azureAccount')]",
       "azurePassword": "[basics('azurePassword')]",
+      "publicCert": "[basics('publicCert')]",
+      "privateCert": "[basics('privateCert')]",
       "adminUsername": "[basics('adminUsername')]",
       "adminPassword": "[basics('password').password]",
       "sshPublicKey": "[basics('password').sshPublicKey]",

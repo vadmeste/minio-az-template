@@ -60,6 +60,18 @@
       "metadata": {
         "description": "Account secret key for the Azure storage."
       }
+    },
+    "publicCert": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Public certificate URL."
+      }
+    },
+    "privateCert": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Private certificate URL."
+      }
     }
   },
   "variables": {
@@ -275,7 +287,7 @@
                     "fileUris": [
                       "https://raw.githubusercontent.com/vadmeste/minio-az-template/master/install_minio.sh"
                     ],
-                    "commandToExecute": "[concat('sh install_minio.sh ', parameters('azureAccount'), ' ', parameters('azurePassword'))]"
+                    "commandToExecute": "[concat('sh install_minio.sh ', parameters('azureAccount'), ' ', parameters('azurePassword'), ' ', parameters('publicCert'), ' ', parameters('privateCert'))]"
                   }
                 }
               }
