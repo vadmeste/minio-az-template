@@ -7,7 +7,7 @@ echo "$2" >> $LOG_FILE
 echo "$3" >> $LOG_FILE
 echo "$4" >> $LOG_FILE
 
-echo "mkdir -p $HOME/.minio/certs/"
+HOME=/root/
 
 mkdir -p $HOME/.minio/certs/
 curl "$3" > $HOME/.minio/certs/public.crt
