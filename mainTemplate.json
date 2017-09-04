@@ -283,10 +283,12 @@
                   "type": "CustomScript",
                   "typeHandlerVersion": "2.0",
                   "autoUpgradeMinorVersion": false,
-                  "protectedSettings": {
+                  "settings": {
                     "fileUris": [
                       "https://raw.githubusercontent.com/vadmeste/minio-az-template/minio_ssl/install_minio.sh"
-                    ],
+                    ]
+                  },
+                  "protectedSettings": {
                     "commandToExecute": "[concat('sh install_minio.sh \"', parameters('azureAccount'), '\" \"', parameters('azurePassword'), '\" \"', parameters('publicCert'), '\" \"', parameters('privateCert'), '\"')]"
                   }
                 }
