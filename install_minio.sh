@@ -43,4 +43,5 @@ sed -i "s#User=minio-user#User=$MINIO_USER#" $SYSTEMD_CONFDIR/minio.service
 sed -i "s#Group=minio-user#Group=$MINIO_USER#" $SYSTEMD_CONFDIR/minio.service
 
 systemctl enable minio.service
+systemctl start minio.service
 
