@@ -34,6 +34,8 @@ if [ ! -z "$PUBLIC_CERT_BLOB" -o ! -z "$PRIVATE_CERT_BLOB" ]; then
     echo "$PRIVATE_CERT_BLOB" | base64 -d > $HOME/.minio/certs/private.key
 fi
 
+chown -R $MINIO_USER:$MINIO_USER $HOME/.minio/
+
 curl 'https://dl.minio.io/server/minio/release/linux-amd64/minio' > $MINIO_BINARY
 chmod +x $MINIO_BINARY
 
