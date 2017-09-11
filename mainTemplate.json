@@ -285,7 +285,7 @@
                   "autoUpgradeMinorVersion": false,
                   "settings": {
                     "fileUris": [
-                      "https://raw.githubusercontent.com/vadmeste/minio-az-template/minio_ssl_systemd/install_minio.sh"
+                      "https://raw.githubusercontent.com/vadmeste/minio-az-template/minio_letsencrypt/install_minio.sh"
                     ]
                   },
                   "protectedSettings": {
