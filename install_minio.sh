@@ -12,7 +12,7 @@ HOME="/home/$MINIO_USER"
 
 MINIO_BINARY=/usr/local/bin/minio
 SYSTEMD_CONFDIR=/etc/systemd/system/
-SYSTEMD_MINIO=https://raw.githubusercontent.com/vadmeste/minio-az-template/minio_ssl_systemd/minio.service 
+SYSTEMD_MINIO=https://raw.githubusercontent.com/vadmeste/minio-az-template/minio_letsencrypt/minio.service 
 
 
 cat <<EOT > /etc/default/minio
@@ -30,8 +30,9 @@ EOT
 
 mkdir -p $HOME/.minio/certs/
 if [ ! -z "$PUBLIC_CERT_BLOB" -a ! -z "$PRIVATE_CERT_BLOB" ]; then
-    echo "$PUBLIC_CERT_BLOB" | base64 -d > $HOME/.minio/certs/public.crt
-    echo "$PRIVATE_CERT_BLOB" | base64 -d > $HOME/.minio/certs/private.key
+    # echo "$PUBLIC_CERT_BLOB" | base64 -d > $HOME/.minio/certs/public.crt
+    # echo "$PRIVATE_CERT_BLOB" | base64 -d > $HOME/.minio/certs/private.key
+    echo "Disabling certs as at temp solution"
 fi
 
 chown -R $MINIO_USER:$MINIO_USER $HOME/.minio/
