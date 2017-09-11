@@ -29,7 +29,7 @@ MINIO_SECRET_KEY="$MINIO_SECRET_KEY"
 EOT
 
 mkdir -p $HOME/.minio/certs/
-if [ ! -z "$PUBLIC_CERT_BLOB" -o ! -z "$PRIVATE_CERT_BLOB" ]; then
+if [ ! -z "$PUBLIC_CERT_BLOB" -a ! -z "$PRIVATE_CERT_BLOB" ]; then
     echo "$PUBLIC_CERT_BLOB" | base64 -d > $HOME/.minio/certs/public.crt
     echo "$PRIVATE_CERT_BLOB" | base64 -d > $HOME/.minio/certs/private.key
 fi
